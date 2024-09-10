@@ -1,31 +1,4 @@
-type Type {
-  id: Int!
-  name: String!
-  code: String
-}
 
-type Category {
-  id: Int!
-  name: String!
-  code: String
-}
-
-type City {
-  id: Int!
-  name: String!
-  code: String
-}
-
-type County {
-  id: Int!
-  name: String!
-  code: String
-}
-type Country {
-  id: Int!
-  name: String!
-  code: String
-}
 
 type Status {
   id: Int!
@@ -61,7 +34,7 @@ type Conference {
   type: Type
   category: Category
   organizerEmail: String!
-  speakers: [Speaker!]!
+  speakers: [Speaker!]
   location: Location
   status(userEmail: String!): Status
 }
@@ -73,4 +46,5 @@ input ConferenceFilterInput {
 
 extend type Query {
   conferenceList(filters: ConferenceFilterInput, userEmail: String!): [Conference]
+  conference(id: Int!): Conference
 }
